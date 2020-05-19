@@ -1,134 +1,379 @@
 .nav{
 	width: 100%;
-	background:lightgrey;
-	padding-top: 8px;
+	background-color: rgb(61, 66, 78);;
 	color:white;
+	padding:10px;
+	display: flex;
+	align-items: center;
+	height: 50px;
 }
-.nav .title{
-	color: maroon;
+.nav .logo{
+	color: white;
 	font-size: 26px;
-	margin-left: 20px;
-	margin-top: -5px;
+	margin-left: 50px;
+	margin-top: -15px;
 }
-
+.nav .logo span{
+	color: maroon;
+}
 .nav ul li{
 	float: left;
 	list-style-type: none;
-	margin-left: 30px;
+	margin-left: 40px;
+	margin-top: 5px;
 	cursor: pointer;
+	font-size: 14px;
+}
+@media Screen and (max-width: 720px){
+	.nav ul { display: none;}
 }
 .nav ul li a{
 	color: white;
 }
-
 .nav ul li a:hover{
-	color: maroon;
+	color: rgb(128, 77, 0);
 	text-decoration: underline;
 }
 
-.back{
-	background: lightgrey url('/static/background2.jpeg');
-	min-height: 700px;
+
+/* For Homepage */
+.homepage{
+	background: lightgrey url('/static/background.jpg');
+	background-attachment: fixed;
+	background-size: cover;
+	background-repeat: no-repeat;
+	height: 360px;
 	width:100%;
+	display: flex;
+	justify-content: center;
+	align-items: center;
 }
-
-.homepage_main h1{
+.homepage .title{
 	text-align: center;
-	margin-top: 50px;
+	margin-top: -50px;
+}
+.homepage .title h1{
+	color: white;
+	font-size: 52px;
+	margin-left: -100px;
+}
+.homepage .title h1 span{
+	color:maroon;
+}
+.homepage .title h4{
+	width: 370px;
+	color:white;
+	font-size: 22px;
+	margin-left: 50px;
+}
+.homepage .title span{
+	color:rgb(184, 5, 5)
 }
 
-.login{
-	width: 500px;
+
+/* For Our Service */
+.ourService{
+	padding-top: 50px;
+	min-height: 450px;
+	background: url('/static/background2.jpeg');
+	background-size: cover;
+}
+@media Screen and (min-width:1000px){
+	.ourService .leftContent{margin-top: 30px;}
+}
+.row{width: 100%; margin:0; padding:0;}
+.ourService .leftContent{
+	text-align: center;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	margin-bottom: 50px;
+	
+}
+.ourService .leftContent .description{
+	width: 400px;margin:auto;
+	margin-top: 20px;
+	box-shadow: 2px 2px 2px 2px lightgrey;
+	padding:30px;
+}
+.ourService .leftContent ol{
+	width: 250px;
 	margin:auto;
-	border:2px double lightgrey;
-	padding:20px;
-	margin-top: 100px;
-	background-color: white;
 }
-.login button{
-	margin-top: 10px;
-}
-
-
-/* for user_upload_image */
-.user_upload_image{
-	margin-top: 60px;
-}
-.user_upload_image h1{
-	text-align: center;
-}
-
-.user_upload_image .imgShow{
-	width: 100%;
-	height: auto;
-	min-height: 300px;
-	border:2px solid grey;
+.ourService .leftContent .description div{
+	font-weight: bold;
 	margin-top: 30px;
-	margin-bottom: 30px;
-	background-color: white;
+}
+.ourService .leftContent h1{
+	color: maroon;
+	font-size: 28px;
+	font-weight: bold;
+}
+.ourService .rightContent{
+	margin:auto;
+}
+.ourService .rightContent img{
+	width: 100%;
+	max-width: 600px;
+	display: block;
+	margin:auto;
 }
 
-.user_upload_image input{
-	max-width: 400px;
+
+/* Try It Now */
+.tryIt{
+	background: url('/static/background3.jpg');
+	background-size: cover;
+	min-height: 600px;
+	margin-top: 40px;
 }
-.user_upload_image button{
-	float: left;
+.tryIt h1{
+	text-align: center;
+	color: maroon;
+	font-weight: bold;
+	font-size: 28px;
 }
-.user_upload_image #preview{
+.tryIt .result{
 	margin:auto;
+	margin-top: 50px;
+	width: 400px;
+	text-align: center;
+}
+.tryIt .result img{
+	margin:auto;
+	margin-top: 20px;
+	width: 100%;
 	display: block;
 }
-.user_upload_image img{
-	width: 80%;
-	height: 100%;
-	max-height: 300px;
-}
-.image_result{
+
+/* How It Works */
+.howItWorks{
 	margin-top: 80px;
+	background: url('/static/background2.jpeg');
+	background-size: cover;
+	min-height: 600px;
 }
-
-
-/* for user_history */
-.user_history{
-	overflow-x: auto;
+.howItWorks h1{
+	text-align: center;
+	color: maroon;
+	font-weight: bold;
+	font-size: 28px;
+	margin-bottom: 50px;
 }
-.user_history h2{
-	margin-top: 20px;
-}
-.user_history table{
-	margin-top: 20px;
-	background-color: white;
-	border:1px solid grey;
+.howItWorks .leftContent img{
 	width: 100%;
-	margin-bottom: 10px;
+	max-width: 700px;
+	display: block;
+	margin:auto
 }
-.user_history table tr{
+.howItWorks .rightContent{
+	background-color: white;
+	padding:30px;
+	margin:auto;
+	max-width: 500px;
+	margin-top: 60px;
+	box-shadow: 2px 2px 2px 2px lightgrey;
 }
-.user_history table img{
-	max-width: 80%;
-}
-
-.user_consultation{
+.howItWorks .rightContent div{
 	margin-top: 25px;
 }
-.user_consultation iframe{
-	margin:auto;
-	display: block;
-	margin-top: 20px;
-}
 
-footer{
-	background-color: grey;
+
+
+
+/* For Footer */
+.footer{
 	width: 100%;
-	height: 120px;
-	margin-top: 50px;
+    color:white;
+	z-index: 99;
 }
-footer span{
-	display: block;
-	color:lightgrey;
-	text-align: center;
-	font-size: 20px;
-	padding-top: 30px;
+.footer img.divider{
+	width: 100%;
+	height: 100px;
+}
+.footer .rowContainer{background-color: rgb(37,41,52);padding-bottom: 40px;}
+.footer .row{
+	width: 80%;
+	margin:auto;
+}
+.footer .logoLeft{
+	position: relative;
+}
+.footer .logoLeft img{
+	width: 100px;
+	position: absolute;
+	right:20px;
+}
+.footer ul li{
+	list-style-type:square;
+	font-size:16px;
+}
+.footer h2{
+	font-family: 'Courier New', Courier, monospace;
+	font-size: 22px;
+	margin:0;
+}
+.footer .section1,.footer .section2,.footer .section3{
+	margin: auto;
+	margin-top: 0;
+}
+@media Screen and (max-width:800px){
+	.footer .section1,.footer .section2,.footer .section3{
+		margin-top: 10px;
+	}
+}
+.footer .subtitle{
+	color:#A7A6A6;
+	margin-bottom: 10px;
+	margin-bottom: 20px;
+}
+.footer .footerForm{
+	width:300px;
+}
+.footer .footerForm input{
+	width: 70%;
+}
+.footer .footerForm textarea{
+	width: 350px;
+	max-width: 80%;
+	height: 100px;
+}
+.footer .bottomFooter{
+	background-color:rgba(37,41,52,0.9);
+	padding-top: 10px;
+	height: 50px;
 }
 
 
+
+
+
+
+.uploader {
+	 display: block;
+	 clear: both;
+	 margin: 0 auto;
+	 width: 100%;
+	 max-width: 300px;
+}
+ .uploader label {
+	 float: left;
+	 clear: both;
+	 width: 100%;
+	 padding: 2rem 1.5rem;
+	 text-align: center;
+	 background: #fff;
+	 border-radius: 7px;
+	 border: 3px solid #eee;
+	 transition: all 0.2s ease;
+	 user-select: none;
+}
+ .uploader label:hover {
+	 border-color: #454cad;
+}
+ .uploader label.hover {
+	 border: 3px solid #454cad;
+	 box-shadow: inset 0 0 0 6px #eee;
+}
+ .uploader label.hover #start i.fa {
+	 transform: scale(0.8);
+	 opacity: 0.3;
+}
+ .uploader #start {
+	 float: left;
+	 clear: both;
+	 width: 100%;
+}
+ .uploader #start.hidden {
+	 display: none;
+}
+ .uploader #start i.fa {
+	 font-size: 50px;
+	 margin-bottom: 1rem;
+	 transition: all 0.2s ease-in-out;
+}
+ .uploader #response {
+	 float: left;
+	 clear: both;
+	 width: 100%;
+}
+ .uploader #response.hidden {
+	 display: none;
+}
+ .uploader #response #messages {
+	 margin-bottom: 0.5rem;
+}
+ .uploader #file-image {
+	 display: inline;
+	 margin: 0 auto 0.5rem auto;
+	 width: auto;
+	 height: auto;
+	 max-width: 180px;
+}
+ .uploader #file-image.hidden {
+	 display: none;
+}
+ .uploader #notimage {
+	 display: block;
+	 float: left;
+	 clear: both;
+	 width: 100%;
+}
+ .uploader #notimage.hidden {
+	 display: none;
+}
+ .uploader progress, .uploader .progress {
+	 display: inline;
+	 clear: both;
+	 margin: 0 auto;
+	 width: 100%;
+	 max-width: 180px;
+	 height: 8px;
+	 border: 0;
+	 border-radius: 4px;
+	 background-color: #eee;
+	 overflow: hidden;
+}
+ .uploader .progress[value]::-webkit-progress-bar {
+	 border-radius: 4px;
+	 background-color: #eee;
+}
+ .uploader .progress[value]::-webkit-progress-value {
+	 background: linear-gradient(to right, #393f90 0%, #454cad 50%);
+	 border-radius: 4px;
+}
+ .uploader .progress[value]::-moz-progress-bar {
+	 background: linear-gradient(to right, #393f90 0%, #454cad 50%);
+	 border-radius: 4px;
+}
+ .uploader input[type="file"] {
+	 display: none;
+}
+ .uploader div {
+	 margin: 0 0 0.5rem 0;
+	 color: #5f6982;
+}
+ .uploader .btn {
+	 display: inline-block;
+	 margin: 0.5rem 0.5rem 1rem 0.5rem;
+	 clear: both;
+	 font-family: inherit;
+	 font-weight: 700;
+	 font-size: 14px;
+	 text-decoration: none;
+	 text-transform: initial;
+	 border: none;
+	 border-radius: 0.2rem;
+	 outline: none;
+	 padding: 0 1rem;
+	 height: 36px;
+	 line-height: 36px;
+	 color: #fff;
+	 transition: all 0.2s ease-in-out;
+	 box-sizing: border-box;
+	 background: #454cad;
+	 border-color: #454cad;
+	 cursor: pointer;
+}
+ 

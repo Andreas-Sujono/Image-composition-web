@@ -2,51 +2,553 @@
 
 {% block nav %}
 <div class="nav">
-	<div class="title"> SkinTech </div>
+	<div class="logo"> Shirt<span>AI</span></div>
 	<ul>
-		<li> Home </li>
-		<li> Login/Register </li>
+		<li><a href="#homepage"> Home </a></li>
+		<li><a href="#ourService"> Our Service </a></li>
+		<li><a href="#tryIt"> Try It Now </a></li>
+		<li><a href="#howItWorks"> How It Works </a></li>
+		<li><a href="#footer"> Contact Us </a> </li>
 	</ul>
 
 </div>
 {% endblock %}
 
-{% block body %}
+{% block home %}
 
-<div class="back homepage_main" >
-	<div class="container">
-		<h1> Skin Health Tracking </h1>
+<div class="homepage fluid-container" id="homepage">
+	<div class="title">
+		<h1> Shirt<span>AI</span></h1>
+		<h4>Design your T-shirt with the power of 
+			<span>Artificial Intelligence</span>
+		</h4>
+	</div>
+</div>
 
-		<div class="login">
-			<h3 style="text-align: center;"> Login </h3>
-			<form method='post' action="{% url 'login_handle'%}">
-		    	{% csrf_token %}
-			  <div class="form-group">
-			    <label for="username">username</label>
-			    <input type="text" class="form-control" id="username"  placeholder="username" autocomplete="off" name="username" required>
-			  </div>
-
-			  <div class="form-group">
-			    <label for="password">Password</label>
-			    <input type="password" class="form-control" id="password" placeholder="Password" autocomplete="off" name='password' required>
-			  </div>
-
-			  {% if messages %}
-			   {% for message in messages %}
-				   {% if message.level == DEFAULT_MESSAGE_LEVELS.ERROR %}<div class="alert alert-danger" role="alert" style='margin-bottom: 10px;margin-top: 10px;'>{{ message }}</div> 
-				   {% endif %}
-			   {% endfor %}
-			{% endif %}
-
-			  <button type="submit" class="btn btn-primary">log in</button>
-
-			  <div style="color: grey;">
-				  <small> don't have an account? sign up in <a href="#"> here</a></small>
-			  </div>
-			</form>
+<div class="ourService" id="ourService">
+	<div class="row">
+		<div class="leftContent col-md-6 col-12">
+			<h1>Our Service</h1>
+			<div class="description">
+				<ol>
+					<li>Upload your first Image</li>
+					<li>Upload your Mask Image</li>
+					<li>Upload your Second Image</li>
+				</ol>
+				<div>
+					We will combine the object from your first image onto your 
+second image according to the mask given
+				</div>
+			</div>
+		</div>
+		<div class="rightContent col-md-6 col-12">
+			<img src="/static/resultExample.png" style="background-color: white;"/>
 		</div>
 	</div>
 </div>
 
+<div class="tryIt" id="tryIt">
+	<h1> Try It Now</h1>
+	<div class="row" style="max-width: 1200px;margin:auto;margin-top: 40px;">
+		<form id="file-upload-form upload-form1 col-md-4 col-12" class="uploader">
+			<input id="file-upload" type="file" name="fileUpload" accept="image/*" />
+		  
+			<label for="file-upload" id="file-drag">
+			  <img id="file-image" src="#" alt="Preview" class="hidden">
+			  <div id="start">
+				<i class="fa fa-download" aria-hidden="true"></i>
+				<div>Upload your first Image</div>
+				<div id="notimage" class="hidden">Please select an image</div>
+				<span id="file-upload-btn" class="btn btn-primary">Select a file</span>
+			  </div>
+			  <div id="response" class="hidden">
+				<div id="messages"></div>
+				<progress class="progress" id="file-progress" value="0">
+				  <span>0</span>%
+				</progress>
+			  </div>
+			</label>
+		</form>
+		<form id="file-upload-form upload-form1 col-md-4 col-12" class="uploader">
+			<input id="file-upload" type="file" name="fileUpload" accept="image/*" />
+		  
+			<label for="file-upload" id="file-drag">
+			  <img id="file-image" src="#" alt="Preview" class="hidden">
+			  <div id="start">
+				<i class="fa fa-download" aria-hidden="true"></i>
+				<div>Upload your Mask Image</div>
+				<div id="notimage" class="hidden">Please select an image</div>
+				<span id="file-upload-btn" class="btn btn-primary">Select a file</span>
+			  </div>
+			  <div id="response" class="hidden">
+				<div id="messages"></div>
+				<progress class="progress" id="file-progress" value="0">
+				  <span>0</span>%
+				</progress>
+			  </div>
+			</label>
+		</form>
+		<form id="file-upload-form upload-form1 col-md-4 col-12" class="uploader">
+			<input id="file-upload" type="file" name="fileUpload" accept="image/*" />
+		  
+			<label for="file-upload" id="file-drag">
+			  <img id="file-image" src="#" alt="Preview" class="hidden">
+			  <div id="start">
+				<i class="fa fa-download" aria-hidden="true"></i>
+				<div>Upload your Second Image</div>
+				<div id="notimage" class="hidden">Please select an image</div>
+				<span id="file-upload-btn" class="btn btn-primary">Select a file</span>
+			  </div>
+			  <div id="response" class="hidden">
+				<div id="messages"></div>
+				<progress class="progress" id="file-progress" value="0">
+				  <span>0</span>%
+				</progress>
+			  </div>
+			</label>
+		</form>
+	</div>
 
+	<div class="result">
+		<h3>Result</h3>
+		<img src="/static/shirt.jpg"/>
+	</div>
+	
+</div>
+
+<div class="howItWorks" id="howItWorks">
+	<h1>How It Works?</h1>
+	<div class="row">
+		<div class="leftContent col-md-7 col-12">
+			<img src="/static/diagram.jpg"/>
+		</div>
+		<div class="rightContent col-md-5 col-12">
+			<h4 style="font-weight: bold;">We Use Convolutional Neural Network</h4>
+			<div class="description">
+				<div>
+					In the first stage, a preliminary blended image 
+is synthesized using the proposed 
+Poisson gradient loss, style loss, and content loss. 
+				</div>
+				<div>
+					In the second stage, the preliminary blended 
+image is further transformed 
+to have more a similar style to match the target image
+				</div>
+				<div class="link" style="font-weight: bold;">
+					See more at this <a href="https://arxiv.org/pdf/1910.11495.pdf">paper</a>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+
+{% endblock %}
+
+
+{% block script %}
+<script>
+// File Upload
+// 
+function ekUpload(){
+  function Init() {
+
+    console.log("Upload Initialised");
+
+    const fileSelect    = document.getElementById('file-upload'),
+        fileDrag      = document.getElementById('file-drag'),
+        submitButton  = document.getElementById('submit-button');
+
+    fileSelect.addEventListener('change', fileSelectHandler, false);
+  }
+
+  function fileSelectHandler(e) {
+    // Fetch FileList object
+    const files = e.target.files || e.dataTransfer.files;
+
+    // Cancel event and hover styling
+    fileDragHover(e);
+
+    // Process all File objects
+    for (var i = 0, f; f = files[i]; i++) {
+      parseFile(f);
+      uploadFile(f);
+    }
+  }
+
+  // Output
+  function output(msg) {
+    // Response
+    const m = document.getElementById('messages');
+    m.innerHTML = msg;
+  }
+
+  function parseFile(file) {
+
+    console.log(file.name);
+    output(
+      '<strong>' + encodeURI(file.name) + '</strong>'
+    );
+    
+    // const fileType = file.type;
+    // console.log(fileType);
+    const imageName = file.name;
+
+    const isGood = (/\.(?=gif|jpg|png|jpeg)/gi).test(imageName);
+    if (isGood) {
+      document.getElementById('start').classList.add("hidden");
+      document.getElementById('response').classList.remove("hidden");
+      document.getElementById('notimage').classList.add("hidden");
+      // Thumbnail Preview
+      document.getElementById('file-image').classList.remove("hidden");
+      document.getElementById('file-image').src = URL.createObjectURL(file);
+    }
+    else {
+      document.getElementById('file-image').classList.add("hidden");
+      document.getElementById('notimage').classList.remove("hidden");
+      document.getElementById('start').classList.remove("hidden");
+      document.getElementById('response').classList.add("hidden");
+      document.getElementById("file-upload-form").reset();
+    }
+  }
+
+  function setProgressMaxValue(e) {
+    const pBar = document.getElementById('file-progress');
+
+    if (e.lengthComputable) {
+      pBar.max = e.total;
+    }
+  }
+
+  function updateFileProgress(e) {
+    const pBar = document.getElementById('file-progress');
+
+    if (e.lengthComputable) {
+      pBar.value = e.loaded;
+    }
+  }
+
+  function uploadFile(file) {
+
+    const xhr = new XMLHttpRequest(),
+      fileInput = document.getElementById('class-roster-file'),
+      pBar = document.getElementById('file-progress'),
+      fileSizeLimit = 1024; // In MB
+    if (xhr.upload) {
+      // Check if file is less than x MB
+      if (file.size <= fileSizeLimit * 1024 * 1024) {
+        // Progress bar
+        pBar.style.display = 'inline';
+        xhr.upload.addEventListener('loadstart', setProgressMaxValue, false);
+        xhr.upload.addEventListener('progress', updateFileProgress, false);
+
+        // File received / failed
+        xhr.onreadystatechange = function(e) {
+          if (xhr.readyState == 4) {
+            // Everything is good!
+
+            // progress.className = (xhr.status == 200 ? "success" : "failure");
+            // document.location.reload(true);
+          }
+        };
+
+        // Start upload
+        xhr.open('POST', document.getElementById('file-upload-form').action, true);
+        xhr.setRequestHeader('X-File-Name', file.name);
+        xhr.setRequestHeader('X-File-Size', file.size);
+        xhr.setRequestHeader('Content-Type', 'multipart/form-data');
+        xhr.send(file);
+      } else {
+        output('Please upload a smaller file (<script ' + fileSizeLimit + ' MB).');
+      }
+    }
+  }
+
+  // Check for the constious File API support.
+  if (window.File && window.FileList && window.FileReader) {
+    Init();
+  } else {
+    document.getElementById('file-drag').style.display = 'none';
+  }
+}
+ekUpload();
+</script>
+
+
+
+<!-- 
+<script>
+	// File Upload
+	// 
+	function ekUpload2(){
+	  function Init2() {
+	
+		console.log("Upload Initialised");
+	
+		const fileSelect    = document.getElementById('file-upload2'),
+			fileDrag      = document.getElementById('file-drag2'),
+			submitButton  = document.getElementById('submit-button2');
+	
+		fileSelect.addEventListener('change', fileSelectHandler2, false);
+	  }
+	
+	  function fileSelectHandle2(e) {
+		// Fetch FileList object
+		const files = e.target.files || e.dataTransfer.files;
+	
+		// Cancel event and hover styling
+		fileDragHover2(e);
+	
+		// Process all File objects
+		for (var i = 0, f; f = files[i]; i++) {
+		  parseFile2(f);
+		  uploadFile2(f);
+		}
+	  }
+	
+	  // Output
+	  function output2(msg) {
+		// Response
+		const m = document.getElementById('messages2');
+		m.innerHTML = msg;
+	  }
+	
+	  function parseFile2(file) {
+	
+		console.log(file.name);
+		output(
+		  '<strong>' + encodeURI(file.name) + '</strong>'
+		);
+		
+		// const fileType = file.type;
+		// console.log(fileType);
+		const imageName = file.name;
+	
+		const isGood = (/\.(?=gif|jpg|png|jpeg)/gi).test(imageName);
+		if (isGood) {
+		  document.getElementById('start2').classList.add("hidden");
+		  document.getElementById('response2').classList.remove("hidden");
+		  document.getElementById('notimage2').classList.add("hidden");
+		  // Thumbnail Preview
+		  document.getElementById('file-image2').classList.remove("hidden");
+		  document.getElementById('file-image2').src = URL.createObjectURL(file);
+		}
+		else {
+		  document.getElementById('file-image2').classList.add("hidden");
+		  document.getElementById('notimage2').classList.remove("hidden");
+		  document.getElementById('start2').classList.remove("hidden");
+		  document.getElementById('response2').classList.add("hidden");
+		  document.getElementById("file-upload-form2").reset();
+		}
+	  }
+	
+	  function setProgressMaxValue2(e) {
+		const pBar = document.getElementById('file-progress2');
+	
+		if (e.lengthComputable) {
+		  pBar.max = e.total;
+		}
+	  }
+	
+	  function updateFileProgress2(e) {
+		const pBar = document.getElementById('file-progress2');
+	
+		if (e.lengthComputable) {
+		  pBar.value = e.loaded;
+		}
+	  }
+	
+	  function uploadFile2(file) {
+	
+		const xhr = new XMLHttpRequest(),
+		  fileInput = document.getElementById('class-roster-file2'),
+		  pBar = document.getElementById('file-progress2'),
+		  fileSizeLimit = 1024; // In MB
+		if (xhr.upload) {
+		  // Check if file is less than x MB
+		  if (file.size <= fileSizeLimit * 1024 * 1024) {
+			// Progress bar
+			pBar.style.display = 'inline';
+			xhr.upload.addEventListener('loadstart', setProgressMaxValue2, false);
+			xhr.upload.addEventListener('progress', updateFileProgress2, false);
+	
+			// File received / failed
+			xhr.onreadystatechange = function(e) {
+			  if (xhr.readyState == 4) {
+				// Everything is good!
+	
+				// progress.className = (xhr.status == 200 ? "success" : "failure");
+				// document.location.reload(true);
+			  }
+			};
+	
+			// Start upload
+			xhr.open('POST', document.getElementById('file-upload-form2').action, true);
+			xhr.setRequestHeader('X-File-Name', file.name);
+			xhr.setRequestHeader('X-File-Size', file.size);
+			xhr.setRequestHeader('Content-Type', 'multipart/form-data');
+			xhr.send(file);
+		  } else {
+			output('Please upload a smaller file (<script ' + fileSizeLimit + ' MB).');
+		  }
+		}
+	  }
+	
+	  // Check for the constious File API support.
+	  if (window.File && window.FileList && window.FileReader) {
+		Init2();
+	  } else {
+		document.getElementById('file-drag2').style.display = 'none';
+	  }
+	}
+	ekUpload2();
+</script>
+
+
+
+
+<script>
+	// File Upload
+	// 
+	function ekUpload(){
+	  function Init() {
+	
+		console.log("Upload Initialised");
+	
+		const fileSelect    = document.getElementById('file-upload3'),
+			fileDrag      = document.getElementById('file-drag3'),
+			submitButton  = document.getElementById('submit-button3');
+	
+		fileSelect.addEventListener('change', fileSelectHandler, false);
+	
+		// Is XHR2 available?
+		const xhr = new XMLHttpRequest();
+		if (xhr.upload) {
+		  // File Drop
+		  fileDrag.addEventListener('dragover', fileDragHover, false);
+		  fileDrag.addEventListener('dragleave', fileDragHover, false);
+		  fileDrag.addEventListener('drop', fileSelectHandler, false);
+		}
+	  }
+	
+	  function fileDragHover(e) {
+		const fileDrag = document.getElementById('file-drag3');
+	
+		e.stopPropagation();
+		e.preventDefault();
+	
+		fileDrag.className = (e.type === 'dragover' ? 'hover' : 'modal-body file-upload');
+	  }
+	
+	  function fileSelectHandler(e) {
+		// Fetch FileList object
+		const files = e.target.files || e.dataTransfer.files;
+	
+		// Cancel event and hover styling
+		fileDragHover(e);
+	
+		// Process all File objects
+		for (var i = 0, f; f = files[i]; i++) {
+		  parseFile(f);
+		  uploadFile(f);
+		}
+	  }
+	
+	  // Output
+	  function output(msg) {
+		// Response
+		const m = document.getElementById('messages3');
+		m.innerHTML = msg;
+	  }
+	
+	  function parseFile(file) {
+	
+		console.log(file.name);
+		output(
+		  '<strong>' + encodeURI(file.name) + '</strong>'
+		);
+		
+		// const fileType = file.type;
+		// console.log(fileType);
+		const imageName = file.name;
+	
+		const isGood = (/\.(?=gif|jpg|png|jpeg)/gi).test(imageName);
+		if (isGood) {
+		  document.getElementById('start3').classList.add("hidden");
+		  document.getElementById('response3').classList.remove("hidden");
+		  document.getElementById('notimage3').classList.add("hidden");
+		  // Thumbnail Preview
+		  document.getElementById('file-image3').classList.remove("hidden");
+		  document.getElementById('file-image3').src = URL.createObjectURL(file);
+		}
+		else {
+		  document.getElementById('file-image3').classList.add("hidden");
+		  document.getElementById('notimage3').classList.remove("hidden");
+		  document.getElementById('start3').classList.remove("hidden");
+		  document.getElementById('response3').classList.add("hidden");
+		  document.getElementById("file-upload-form3").reset();
+		}
+	  }
+	
+	  function setProgressMaxValue(e) {
+		const pBar = document.getElementById('file-progress3');
+	
+		if (e.lengthComputable) {
+		  pBar.max = e.total;
+		}
+	  }
+	
+	  function updateFileProgress(e) {
+		const pBar = document.getElementById('file-progress3');
+	
+		if (e.lengthComputable) {
+		  pBar.value = e.loaded;
+		}
+	  }
+	
+	  function uploadFile(file) {
+	
+		const xhr = new XMLHttpRequest(),
+		  fileInput = document.getElementById('class-roster-file3'),
+		  pBar = document.getElementById('file-progress3'),
+		  fileSizeLimit = 1024; // In MB
+		if (xhr.upload) {
+		  // Check if file is less than x MB
+		  if (file.size <= fileSizeLimit * 1024 * 1024) {
+			// Progress bar
+			pBar.style.display = 'inline';
+			xhr.upload.addEventListener('loadstart', setProgressMaxValue, false);
+			xhr.upload.addEventListener('progress', updateFileProgress, false);
+	
+			// File received / failed
+			xhr.onreadystatechange = function(e) {
+			  if (xhr.readyState == 4) {
+				// Everything is good!
+	
+				// progress.className = (xhr.status == 200 ? "success" : "failure");
+				// document.location.reload(true);
+			  }
+			};
+	
+			// Start upload
+			xhr.open('POST', document.getElementById('file-upload-form3').action, true);
+			xhr.setRequestHeader('X-File-Name', file.name);
+			xhr.setRequestHeader('X-File-Size', file.size);
+			xhr.setRequestHeader('Content-Type', 'multipart/form-data');
+			xhr.send(file);
+		  } else {
+			output('Please upload a smaller file (<script ' + fileSizeLimit + ' MB).');
+		  }
+		}
+	  }
+	
+	  // Check for the constious File API support.
+	  if (window.File && window.FileList && window.FileReader) {
+		Init();
+	  } else {
+		document.getElementById('file-drag3').style.display = 'none';
+	  }
+	}
+	ekUpload();
+</script> -->
 {% endblock %}

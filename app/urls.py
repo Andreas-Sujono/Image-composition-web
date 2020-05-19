@@ -18,22 +18,11 @@ from django.urls import path
 from django.conf.urls.static import static
 from django.conf import settings
 
-
 from homepage.views import *
-
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('',homepage_view, name='homepage' ),
-    path('login/',login_handle, name='login_handle' ),
-    path('user/upload-image/',user_upload_image_view, name= 'user_upload_image'),
-    path('user/history/',user_history_view,name='user_history'),
-    path('user/profile/',user_profile_view,name='user_profile'),
-    path('logout/',user_logout,name='user_logout'),
-    path('user/history/delete/<int:id>',user_history_delete, name='user_history_delete'),
-
-    path('user/consultation',user_consultation_view,name='user_consultation'),
-    path('user/profile',user_profile_view,name='user_profile')
 ] 
 
 if settings.DEBUG:

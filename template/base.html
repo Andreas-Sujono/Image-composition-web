@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 	<head>
-		<title>SkinTech</title>
+		<title>SHIRT-AI</title>
 
 		<!-- css code for bootstrap -->
 		<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
@@ -11,41 +11,82 @@
 		<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
 		<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
 
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    	<script src="https://kit.fontawesome.com/795e36e422.js" crossorigin="anonymous"></script>
+
 		{% load staticfiles %}
 		<link rel='stylesheet' href="{% static 'index.css'%}" type='text/css'/>
-
-
 	</head>
 
 	<body>
-
 		{% block nav%}
-		<div class="nav">
-			<div class="title"> SkinTech </div>
-			<ul>
-				<li> <a href="{% url 'user_upload_image' %}"> Upload Image </a> </li>
-				<li> <a href="{% url 'user_history' %}">History </a></li>
-				<li> <a href="{% url 'user_consultation' %}"> Consultation </a> </li>
-				<li> <a href="{% url 'user_profile' %}">Profile </a></li>
-				<li> <a href="{% url 'user_logout' %}">Logout </a></li>
-			</ul>
-
-		</div>
 		{% endblock %}
 
-		
-		{% block body %}
+		{% block home %}
 		{% endblock %}
-
-		
+	
 		{% block footer %}
-		<footer>
-			<span>made by Andreas Sujono, Michael Wijaya, and Nicholas Kenneth</span>
-		</footer>
+		<div class="footer" id="footer">
+			<img src="/static/divider.png" class="divider"/>
+
+			<div class="rowContainer">
+				
+				<div class="row">
+					<div class="logoLeft col-md-4 col-12" style="text-align: center;">
+						<h1> SHIRT<span style="color:maroon">AI</span></h1>
+					</div>
+	
+					<div class="section1 col-md-4 col-8">
+						<h2> Contact Us </h2>
+						<div class="contentSection1">
+							<ul>
+								<li> <a href="#">Facebook</a></li>
+								<li><a href="https://github.com/Andreas-Sujono/Image-composition-web">Github</a></li>
+								<li>Email: shirtAI.hr@gmail.com</li>
+							</ul>
+						</div>
+					</div>
+	
+					<div class="section2 col-md-4 col-8">
+						<h2> Have a Question? </h2>
+						<div class="subtitle">Don't hesitate to contact us below</div>
+						<div class="contentSection2">
+
+							<div class="footerForm">
+								<form 
+									action="https://formspree.io/xdogvkwq"
+									method="POST"
+								>
+									<div class="form-group">
+										<input 
+											type="email" 
+											placeholder="Email" 
+											name="email"
+											required
+											class="form-control"
+										/>
+									</div>
+									<div class="form-group">
+										<textarea 
+											type="text" 
+											placeholder="Message" 
+											required
+											name="message"
+											class="form-control"
+										></textarea>
+									</div>
+									<button class="btn btn-primary">Submit</button>
+								
+								</form>
+							</div>
+						</div>
+					</div>
+	
+				</div>
+			</div>		
 		{% endblock %}
 
 	</body>
-
 </html>
 
 {% block script %}
