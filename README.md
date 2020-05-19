@@ -1,7 +1,7 @@
 # Image Composition Web App
 
 Web app built using Django with server side rendering
-- Iimplementation of the [paper](https://arxiv.org/pdf/1910.11495.pdf)
+- Implementation of the [paper](https://arxiv.org/pdf/1910.11495.pdf)
 - see original algorithm [here](https://github.com/owenzlz/DeepImageBlending)
 
 ___
